@@ -61,9 +61,9 @@ LQRPhotoSelectUtils提供了两个构造函数，分别是：
 	public LQRPhotoSelectUtils(Activity activity, PhotoSelectListener listener, int aspectX, int aspectY, int outputX, int outputY) 
 
 >这里有两个要说明的：
-
+>
 >1. 部分国产机无法使用图片剪切功能，例如华为TAG-AL00就阉割了图片剪切，但本人亲测小米3就可以进行图片剪切，这是系统优化差异造成的，不是本库的问题！！！
-1. 此外，就算可以进行图片剪切，也不一定可以固定图片大小，亲测小米3与坚果pro无法固定剪切图片的大小，又因为手头上没有“谷歌亲儿子”，所以没法断定是不是本库代码问题，故在此，本人建议使用第一个构造方法。
+>1. 此外，就算可以进行图片剪切，也不一定可以固定图片大小，亲测小米3与坚果pro无法固定剪切图片的大小，又因为手头上没有“谷歌亲儿子”，所以没法断定是不是本库代码问题，故在此，本人建议使用第一个构造方法。
 
 使用第一个构造方法创建LQRPhotoSelectUtils对象示例如下：
 
@@ -104,7 +104,7 @@ LQRPhotoSelectUtils提供了两个构造函数，分别是：
 
 >注意：
 >
-如果你app的build.gradle中，defaultConfig{}的applicationId对应的值不是应用包名的话就需要调用setAuthorities()方法;也设置FileProvider的主机名，这是为了适配Android 7.0。取值是applicationId对应的值+".fileprovider"。若applicationId对应的值是应用包名的话则不需理会。
+>如果你app的build.gradle中，defaultConfig{}的applicationId对应的值不是应用包名的话就需要调用setAuthorities()方法;也设置FileProvider的主机名，这是为了适配Android 7.0。取值是applicationId对应的值+".fileprovider"。若applicationId对应的值是应用包名的话则不需理会。
 
 ## 4、效果
 
