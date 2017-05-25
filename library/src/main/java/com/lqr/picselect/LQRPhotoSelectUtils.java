@@ -127,6 +127,10 @@ public class LQRPhotoSelectUtils {
     }
 
     private void zoomPhoto(File inputFile, File outputFile) {
+        File parentFile = outputFile.getParentFile();
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
         Intent intent = new Intent("com.android.camera.action.CROP");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             intent.setDataAndType(getImageContentUri(mActivity, inputFile), "image/*");

@@ -1,6 +1,6 @@
 # 一、简述 
 
-从 7.0 开始，Android SDK 中的 StrictMode 策略禁止开发人员在应用外部公开 file:// URI。具体表现为，当我们在应用中使用包含 file:// URI 的 Intent 离开自己的应用时，程序会发生故障。本人根据网上给出的适配教程，成功在图片选择及拍照方面适配上了Android 7.0，并自己封装了一个工具类，为了今后开发更加快捷，于是本库就诞生了，如果你使用本库的话，只需少量配置并调用本库工具类中提供的3个方法，便可轻松完成拍照或图库选取图片的功能需求，且完全不需要考虑Android系统版本的问题，下面来看看如何使用本库。
+从 Android 7.0 开始，Android SDK 中的 StrictMode 策略禁止开发人员在应用外部公开 file:// URI。具体表现为，当我们在应用中使用包含 file:// URI 的 Intent 离开自己的应用时，程序会发生故障。本人根据网上给出的适配教程，成功在图片选择及拍照方面适配上了Android 7.0，并自己封装了一个工具类，为了今后开发更加快捷，于是本库就诞生了，如果你愿意使用本库的话，只需调用本库工具类中提供的3个方法(最少)，便可轻松完成拍照或图库选取图片的功能需求，且完全不需要考虑Android系统版本的问题，下面来看看如何使用本库。
 
 
 # 二、使用
@@ -9,7 +9,7 @@
 
 ### 1）依赖
 
-	compile 'com.lqr.picselect:library:1.0.0'
+	compile 'com.lqr.picselect:library:1.0.1'
 
 ### 2）权限
 
@@ -17,40 +17,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
-## 2、配置xml与清单文件 
-
-如果嫌麻烦，可以把Demo中的file\_provider\_paths.xml和清单文件中的配置复制到你的项目中。
-
-### 1）xml配置
-在res下创建一个xml文件夹，在该xml文件夹中创建一个名为file\_provider\_paths.xml的文件，内容如下：
-
-	<?xml version="1.0" encoding="utf-8"?>
-	<paths xmlns:android="http://schemas.android.com/apk/res/android">
-	    <!--路径是SD卡根目录，别名myFile-->
-	    <files-path name="myFile" path=""/>
-	    <root-path path="" name="camera_photos" />
-	</paths>
-	
-### 2）清单文件配置 
-
-打开AndroidManifest.xml文件，在Application标签中加入FileProvider声明：
-
-	<application
-        android:icon="@mipmap/ic_launcher"
-        android:theme="@style/AppTheme">
-		...
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider_paths"/>
-        </provider>
-    </application>
-
-## 3、代码调用
+## 2、代码调用
 
 ### 1）创建LQRPhotoSelectUtils
 LQRPhotoSelectUtils提供了两个构造函数，分别是：
